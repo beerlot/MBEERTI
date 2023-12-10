@@ -21,7 +21,7 @@ export const AnswerOptions: React.FC<AnswerOptionsProps> = ({
       <AnswerButton onClick={() => onClickAnswer(option1.type)}>
         {option1.text}
       </AnswerButton>
-      <AnswerButton mt={2} onClick={() => onClickAnswer(option1.type)}>
+      <AnswerButton mt={2} onClick={() => onClickAnswer(option2.type)}>
         {option2.text}
       </AnswerButton>
     </VStack>

@@ -1,14 +1,14 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { calculateMBTI } from "@/service.ts/mbti";
 import { SurveyList } from "@/static/survey";
+import { typeType } from "@/typedef/survey";
 import { pxToRem } from "@/utils/size";
 import { Box } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { AnswerOptions } from "./AnswerOptions";
 import { Question } from "./Question";
-import { useState } from "react";
-import { typeType } from "@/typedef/survey";
-import { calculateMBTI } from "@/service.ts/mbti";
 
 export default function Page() {
   const InitialAnswerCounter = {
@@ -41,7 +41,6 @@ export default function Page() {
       router.push("/result?mbti=" + finalAnswer);
       return;
     }
-
     const newAnswer = {
       ...userAnswerCounter,
       [answer]: userAnswerCounter[answer] + 1,
