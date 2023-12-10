@@ -1,7 +1,9 @@
 export interface SurveyAnswerOptionType {
   text: string;
-  type: "S" | "N" | "P" | "J" | "I" | "E" | "T" | "F";
+  type: typeType;
 }
+
+export type typeType = "S" | "N" | "P" | "J" | "I" | "E" | "T" | "F";
 
 export interface SurveyListType {
   question: string;

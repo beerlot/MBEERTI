@@ -1,6 +1,6 @@
 "use client";
 
-import { SurveyAnswerOptionType } from "@/typedef/survey";
+import { SurveyAnswerOptionType, typeType } from "@/typedef/survey";
 import { pxToRem } from "@/utils/size";
 import { Button, ButtonProps, VStack } from "@chakra-ui/react";
 import React from "react";
@@ -8,16 +8,22 @@ import React from "react";
 interface AnswerOptionsProps {
   option1: SurveyAnswerOptionType;
   option2: SurveyAnswerOptionType;
+  onClickAnswer: (answer: typeType) => void;
 }
 
 export const AnswerOptions: React.FC<AnswerOptionsProps> = ({
   option1,
   option2,
+  onClickAnswer,
 }) => {
   return (
     <VStack>
-      <AnswerButton>{option1.text}</AnswerButton>
-      <AnswerButton mt={2}>{option2.text}</AnswerButton>
+      <AnswerButton onClick={() => onClickAnswer(option1.type)}>
+        {option1.text}
+      </AnswerButton>
+      <AnswerButton mt={2} onClick={() => onClickAnswer(option1.type)}>
+        {option2.text}
+      </AnswerButton>
     </VStack>
   );
 };
