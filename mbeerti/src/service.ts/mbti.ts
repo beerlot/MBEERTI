@@ -1,3 +1,5 @@
+import { MBTIResultInfo, mbtiImages } from "@/typedef/result";
+
 export const calculateMBTI = (answers: { [key: string]: number }): string => {
   let mbti = "";
   if (answers["I"] > answers["E"]) {
@@ -24,4 +26,7 @@ export const calculateMBTI = (answers: { [key: string]: number }): string => {
   }
 
   return mbti;
+};
+export const getMBTIInfo = (mbti: string): MBTIResultInfo => {
+  return mbtiImages[mbti.toLowerCase()];
 };

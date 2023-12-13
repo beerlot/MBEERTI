@@ -1,19 +1,38 @@
 "use client";
 
+import { getMBTIInfo } from "@/service.ts/mbti";
+import { FALLBACK_MBTI_INFO } from "@/static/result";
 import { BEERLOT_PROD_URL } from "@/static/url";
 import { pxToRem } from "@/utils/size";
-import { Button } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Page = () => {
   const searchParams = useSearchParams();
   const result = searchParams.get("mbti");
   const handleShare = () => {};
+  const router = useRouter();
+  const invalidCase = !result || !getMBTIInfo(result);
+
+  if (invalidCase) {
+    router.push("/");
+    return null;
+  }
+
+  const mbtiInfo = getMBTIInfo(result) || FALLBACK_MBTI_INFO;
 
   return (
     <div>
-      result:{result}
+      <Box>
+        <Image
+          src={`/images/result/${mbtiInfo?.imageSrc}`}
+          alt={mbtiInfo?.imageSrc}
+          width={350}
+          height={700}
+        />
+      </Box>
       <Button
         bg={"#FEA801"}
         py={3}
