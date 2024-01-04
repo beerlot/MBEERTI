@@ -3,6 +3,7 @@
 import { pxToRem } from "@/utils/size";
 import { Button, Container } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
@@ -12,6 +13,12 @@ export default function Home() {
 
   return (
     <Container>
+      <Image
+        src={`/images/intro/beerlot-start-image.jpg`}
+        alt={"나는 어떤 맥주일까?"}
+        width={350}
+        height={700}
+      />
       <Button
         bg={"#FEA801"}
         py={3}

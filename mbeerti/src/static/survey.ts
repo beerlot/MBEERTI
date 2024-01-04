@@ -5,22 +5,22 @@ export const SurveyList: SurveyListType[] = [
     question:
       "하루 끝, 맥주를 마실까 생각하며 너튜브 쇼츠를 보는데 맥주영상이 나온다.",
     option1: {
-      text: "역시 오늘 맥주 각이다,, 저 맥주 한 번 마셔볼까나~",
+      text: "역시 오늘 맥주 각,, 저 맥주 한 번 마셔볼까?",
       type: "S",
     },
     option2: {
-      text: "나 맥주 생각한 거 어떻게 알았지? 알고리즘 뭐야 진짜?",
+      text: `나 맥주 생각한 거 어떻게 알았지?\n알고리즘 뭐야 진짜?`,
       type: "N",
     },
   },
   {
     question: "맥주를 사러 편의점에 갈 때 챙기는 건?",
     option1: {
-      text: "챙길 게 뭐가 있나, 카드만 주머니에 넣고 나간다.",
+      text: "카드만 주머니에 넣고 나간다.",
       type: "P",
     },
     option2: {
-      text: "민증, 카드 확인 후 지갑을 장바구니에 챙긴다.",
+      text: "민증, 카드 확인 후 지갑을 가방에 챙긴다.",
       type: "J",
     },
   },
@@ -38,11 +38,11 @@ export const SurveyList: SurveyListType[] = [
   {
     question: "맥주를 계산하려는데, 알바생이 바뀌었다",
     option1: {
-      text: "내적 친밀감 생겼었는데 바뀌어서 아쉽다고 생각한다.",
+      text: "내적 친밀감 있었는데 바뀌어서 괜히 아쉽다",
       type: "I",
     },
     option2: {
-      text: "“새로 오셨나봐요! 저 여기 단골인데 ㅎㅎ”라며 말 건다.",
+      text: "“새로 오셨나봐요! 저 단골인데 ㅎㅎ”\n라며 말 건다.",
       type: "E",
     },
   },
@@ -50,11 +50,11 @@ export const SurveyList: SurveyListType[] = [
     question:
       "편의점 앞 간이 테이블에서 혼맥하던 사람과 눈이 마주치는데 너무 취향이다.",
     option1: {
-      text: "저렇게 내 스타일인 사람이 동네에 있었다니,,",
+      text: "저렇게 내 스타일인 사람이 동네에 있었나,,",
       type: "S",
     },
     option2: {
-      text: "왜 쳐다보지? 말 걸려나? 그럼 뭐라고 대답하지 ㅎㅎ",
+      text: `왜 쳐다보지? 말 걸려나?\n그럼 뭐라고 대답하지 ㅎㅎ`,
       type: "N",
     },
   },
@@ -72,11 +72,11 @@ export const SurveyList: SurveyListType[] = [
   {
     question: "얼떨결에 얘기를 나누면서 같이 맥주를 마시게 됐다.",
     option1: {
-      text: "오늘 혼맥 각이었는데 하,, 내 취향이니까 봐준다",
+      text: "혼맥하고 싶었는데,, 내 취향이니까 봐준다",
       type: "I",
     },
     option2: {
-      text: "아싸 동네 친구도 사귀고 약간 사심도 채우고 ㅋㅎ 개이득!",
+      text: "동네 친구도 사귀고 사심도 채우고 ㅋㅎ\n개이득!",
       type: "E",
     },
   },
@@ -98,29 +98,29 @@ export const SurveyList: SurveyListType[] = [
       type: "S",
     },
     option2: {
-      text: "“흠,, 일단 전 맥주에 진심이니까 제 마음을 고백할래요”",
+      text: "“흠,, 일단 전 맥주에 진심이니까\n제 마음을 고백할래요”",
       type: "N",
     },
   },
   {
     question: "나를 설레게 한 이 사람의 행동은?",
     option1: {
-      text: "맥주를 흘린 내게 본인이 챙겨온 휴지를 건네줄 때",
+      text: "맥주를 흘린 내게 챙겨온 휴지를 건네준다",
       type: "J",
     },
     option2: {
-      text: "갑자기 맛있는 맥주집 있다며 2차 가자고 할 때",
+      text: "맛있는 맥주집 안다며 2차 가자고 한다",
       type: "P",
     },
   },
   {
     question: "다음에 또 만나고 싶은데, 내 마음을 전하는 방법은?",
     option1: {
-      text: "뭘 어떻게는 못하겠고, 하염없이 눈빛을 보낸다",
+      text: "뭘 하지는 못하고, 하염없이 눈빛을 보낸다",
       type: "I",
     },
     option2: {
-      text: "번호를 교환하고 저장한 후 연락하겠다고 한다",
+      text: "다음에 또 보고싶다고 하며 번호를 교환한다",
       type: "E",
     },
   },
@@ -131,8 +131,10 @@ export const SurveyList: SurveyListType[] = [
       type: "T",
     },
     option2: {
-      text: "이상형 만나서 기분 좋으니까",
+      text: "이상형도 만났겠다 기분 좋으니까",
       type: "F",
     },
   },
 ];
+
+export const SURVEY_LIST_LENGTH = SurveyList.length;

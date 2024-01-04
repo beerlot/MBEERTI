@@ -17,7 +17,7 @@ export const AnswerOptions: React.FC<AnswerOptionsProps> = ({
   onClickAnswer,
 }) => {
   return (
-    <VStack>
+    <VStack mt={pxToRem(164)}>
       <AnswerButton onClick={() => onClickAnswer(option1.type)}>
         {option1.text}
       </AnswerButton>
@@ -41,6 +41,7 @@ export const AnswerButton: React.FC<ButtonProps> = ({ children, ...props }) => {
       h={pxToRem(80)}
       py={4}
       px={6}
+      whiteSpace={"pre-wrap"}
       {...props}
     >
       {children}

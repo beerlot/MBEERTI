@@ -1,10 +1,10 @@
 "use client";
 
 import { calculateMBTI } from "@/service.ts/mbti";
-import { SurveyList } from "@/static/survey";
+import { SurveyList, SURVEY_LIST_LENGTH } from "@/static/survey";
 import { typeType } from "@/typedef/survey";
 import { pxToRem } from "@/utils/size";
-import { Box } from "@chakra-ui/react";
+import { Box, Center, Progress, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AnswerOptions } from "./AnswerOptions";
@@ -48,43 +48,48 @@ export default function Page() {
     setUserAnswerCounter(newAnswer);
   };
 
+  const value = ((currentStep + 1) / SURVEY_LIST_LENGTH) * 100;
+
   return (
-    <>
-      <ProgressBar />
-      {SurveyList.map((survey, index) => {
-        const { question, option1, option2 } = survey;
-        if (index !== currentStep) return null;
-        return (
-          <>
-            <Question>{question}</Question>
-            <AnswerOptions
-              option1={option1}
-              option2={option2}
-              onClickAnswer={handleClickAnswer}
-            />
-          </>
-        );
-      })}
-    </>
+    <Center h="100vh" bg="orange">
+      <Box maxW={pxToRem(450)} w="full" h="100vh" bg="white" p={5}>
+        <Progress
+          value={value}
+          size="xs"
+          h={1}
+          colorScheme="blackAlpha"
+          borderRadius={100}
+          mt={pxToRem(52)}
+        />
+        <Text
+          textAlign={"end"}
+          textColor={"#333"}
+          mt={2}
+          fontSize={pxToRem(14)}
+          lineHeight={pxToRem(20)}
+          fontWeight={700}
+        >
+          {currentStep + 1}
+          <Text as={"span"} textColor={"#999"}>
+            {" "}
+            / {SURVEY_LIST_LENGTH}
+          </Text>
+        </Text>
+        {SurveyList.map((survey, index) => {
+          const { question, option1, option2 } = survey;
+          if (index !== currentStep) return null;
+          return (
+            <Box key={question} mt={pxToRem(108)}>
+              <Question>{question}</Question>
+              <AnswerOptions
+                option1={option1}
+                option2={option2}
+                onClickAnswer={handleClickAnswer}
+              />
+            </Box>
+          );
+        })}
+      </Box>
+    </Center>
   );
 }
-
-const ProgressBar = () => {
-  return (
-    <Box
-      w="100%"
-      h={pxToRem(10)}
-      bg="gray.200"
-      borderRadius={pxToRem(10)}
-      overflow="hidden"
-    >
-      <Box
-        w="50%"
-        h="100%"
-        bg="blue.400"
-        borderRadius={pxToRem(10)}
-        transition="width 0.5s ease-in-out"
-      ></Box>
-    </Box>
-  );
-};
