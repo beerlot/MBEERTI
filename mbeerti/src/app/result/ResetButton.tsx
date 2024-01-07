@@ -18,6 +18,7 @@ export const ResetButton = () => {
       h={10}
       as={Link}
       href={"/"}
+      aria-label="reset button"
     />
   );
 };
