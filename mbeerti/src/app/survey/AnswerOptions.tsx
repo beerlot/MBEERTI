@@ -42,6 +42,7 @@ export const AnswerButton: React.FC<ButtonProps> = ({ children, ...props }) => {
       py={4}
       px={6}
       whiteSpace={"pre-wrap"}
+      _hover={{}}
       {...props}
     >
       {children}

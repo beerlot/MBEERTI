@@ -9,7 +9,7 @@ export const ContainerBackground: React.FC<ContainerBackgroundProps> = ({
   ...props
 }) => {
   return (
-    <Center h="100vh" bg="orange" {...props}>
+    <Center h="100vh" bg="gray" {...props}>
       {children}
     </Center>
   );
