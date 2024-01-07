@@ -1,12 +1,13 @@
 "use client";
 
 import { calculateMBTI } from "@/service.ts/mbti";
-import { SurveyList, SURVEY_LIST_LENGTH } from "@/static/survey";
+import { SURVEY_LIST_LENGTH, SurveyList } from "@/static/survey";
 import { typeType } from "@/typedef/survey";
 import { pxToRem } from "@/utils/size";
-import { Box, Center, Progress, Text } from "@chakra-ui/react";
+import { Box, Progress, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ContainerBackground, LayoutContainer } from "../shared/layout";
 import { AnswerOptions } from "./AnswerOptions";
 import { Question } from "./Question";
 
@@ -51,8 +52,8 @@ export default function Page() {
   const value = ((currentStep + 1) / SURVEY_LIST_LENGTH) * 100;
 
   return (
-    <Center h="100vh" bg="orange">
-      <Box maxW={pxToRem(450)} w="full" h="100vh" bg="white" p={5}>
+    <ContainerBackground>
+      <LayoutContainer p={5}>
         <Progress
           value={value}
           size="xs"
@@ -89,7 +90,7 @@ export default function Page() {
             </Box>
           );
         })}
-      </Box>
-    </Center>
+      </LayoutContainer>
+    </ContainerBackground>
   );
 }
