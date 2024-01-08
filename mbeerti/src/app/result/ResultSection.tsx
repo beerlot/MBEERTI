@@ -2,7 +2,7 @@
 
 import { getMBTIInfo } from "@/service.ts/mbti";
 import { FALLBACK_MBTI_INFO } from "@/static/result";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack, useToast } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loading } from "../shared/loading";
@@ -23,7 +23,29 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
   const result = searchParams.get("mbti");
   const router = useRouter();
   const invalidCase = !result || !getMBTIInfo(result);
-  const handleShare = () => {};
+  const toast = useToast();
+
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      toast({
+        position: "top",
+        title: "링크가 클립보드에 복사되었습니다.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } catch {
+      toast({
+        position: "top",
+        title:
+          "링크를 클립보드에 복사할 수 없습니다. 잠시 후 다시 시도해주세요.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
 
   if (invalidCase) {
     router.push("/");
