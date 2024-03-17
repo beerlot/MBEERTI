@@ -29,7 +29,7 @@ export default function Home() {
           />
           <Button
             position="absolute"
-            bottom={5}
+            bottom={14}
             left={5}
             right={5}
             bg={"#FEA801"}
