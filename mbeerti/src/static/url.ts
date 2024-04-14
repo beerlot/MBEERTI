@@ -1,1 +1,1 @@
-export const BEERLOT_PROD_URL = "https://beerlot-client.info";
+export const BEERLOT_PROD_URL = "https://beerlot.info";
