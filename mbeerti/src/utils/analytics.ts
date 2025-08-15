@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-export const GA_TRACKING_ID = 'G-XXXXXXXXXX';
+export const GA_TRACKING_ID = 'G-DN7SE8SSSJ';
 
 // 페이지뷰 추적
 export const pageview = (url: string) => {
