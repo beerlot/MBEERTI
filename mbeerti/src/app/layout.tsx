@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mbeerti.vercel.app"),
 };
 
+// MBEERTI - Beer Personality Test App
 export default function RootLayout({
   children,
 }: {
