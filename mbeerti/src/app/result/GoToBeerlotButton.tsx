@@ -5,8 +5,13 @@ import { pxToRem } from "@/utils/size";
 import { Button } from "@chakra-ui/react";
 import Link from "next/link";
 import { CaretRightIcon } from "../../../public/icons/icons";
+import { trackBeerlotClick } from "@/utils/analytics";
 
 export const GoToBeerlotButton = () => {
+  const handleClick = () => {
+    trackBeerlotClick();
+  };
+
   return (
     <Button
       bg={"#FEA801"}
@@ -21,6 +26,7 @@ export const GoToBeerlotButton = () => {
       border={"none"}
       w={"full"}
       _hover={{}}
+      onClick={handleClick}
     >
       비어랏에서 맥주 구경하기
       <CaretRightIcon w={5} h={9} />

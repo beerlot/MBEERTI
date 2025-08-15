@@ -2,8 +2,16 @@
 
 import { pxToRem } from "@/utils/size";
 import { Button, ButtonProps } from "@chakra-ui/react";
+import { trackShareClick } from "@/utils/analytics";
 
-export const ShareButton: React.FC<ButtonProps> = ({ ...props }) => {
+export const ShareButton: React.FC<ButtonProps> = ({ onClick, ...props }) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    trackShareClick('share_button');
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
   return (
     <Button
       border={"1px solid"}
@@ -17,6 +25,7 @@ export const ShareButton: React.FC<ButtonProps> = ({ ...props }) => {
       fontWeight={700}
       w={"full"}
       _hover={{}}
+      onClick={handleClick}
       {...props}
     >
       친구에게 공유하기

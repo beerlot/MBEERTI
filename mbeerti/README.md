@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MBEERTI - Beer Personality Test
 
-## Getting Started
+맥주 성격 테스트 앱입니다. MBTI 기반으로 사용자의 맥주 성격을 분석합니다.
 
-First, run the development server:
+## Google Analytics 설정
+
+1. Google Analytics 계정에서 새로운 속성을 생성하거나 기존 속성을 사용
+2. 측정 ID를 복사 (예: G-XXXXXXXXXX)
+3. `src/app/layout.tsx` 파일에서 `G-XXXXXXXXXX`를 실제 측정 ID로 교체
+4. `src/utils/analytics.ts` 파일에서도 `GA_TRACKING_ID`를 실제 측정 ID로 교체
+
+## 트래킹되는 이벤트
+
+- **survey_start**: 맥주 테스트 시작
+- **survey_complete**: 테스트 완료 (MBTI 결과 포함)
+- **share_click**: 공유하기 버튼 클릭
+- **beerlot_click**: 비어랏으로 이동 버튼 클릭
+- **reset_click**: 테스트 다시하기 버튼 클릭
+
+## 개발
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 배포
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npm run build
+npm run start
+```

@@ -3,8 +3,13 @@
 import { IconButton } from "@chakra-ui/react";
 import Link from "next/link";
 import { ResetIcon } from "../../../public/icons/icons";
+import { trackResetClick } from "@/utils/analytics";
 
 export const ResetButton = () => {
+  const handleClick = () => {
+    trackResetClick();
+  };
+
   return (
     <IconButton
       borderRadius={"full"}
@@ -19,6 +24,7 @@ export const ResetButton = () => {
       as={Link}
       href={"/"}
       aria-label="reset button"
+      onClick={handleClick}
     />
   );
 };

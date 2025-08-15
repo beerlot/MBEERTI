@@ -10,6 +10,7 @@ import { useState } from "react";
 import { ContainerBackground, LayoutContainer } from "../shared/layout";
 import { AnswerOptions } from "./AnswerOptions";
 import { Question } from "./Question";
+import { trackSurveyComplete } from "@/utils/analytics";
 
 export default function Page() {
   const InitialAnswerCounter = {
@@ -39,6 +40,7 @@ export default function Page() {
   const handleClickAnswer = (answer: typeType) => {
     if (currentStep === SurveyList.length - 1) {
       const finalAnswer = calculateMBTI(userAnswerCounter);
+      trackSurveyComplete(finalAnswer);
       router.push("/result?mbti=" + finalAnswer);
       return;
     }
@@ -64,14 +66,14 @@ export default function Page() {
         />
         <Text
           textAlign={"end"}
-          color={"#333"}
+          textColor={"#333"}
           mt={2}
           fontSize={pxToRem(14)}
           lineHeight={pxToRem(20)}
           fontWeight={700}
         >
           {currentStep + 1}
-          <Text as={"span"} color={"#999"}>
+          <Text as={"span"} textColor={"#999"}>
             {" "}
             / {SURVEY_LIST_LENGTH}
           </Text>
