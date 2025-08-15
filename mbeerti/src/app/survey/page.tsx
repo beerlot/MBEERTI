@@ -64,14 +64,14 @@ export default function Page() {
         />
         <Text
           textAlign={"end"}
-          textColor={"#333"}
+          color={"#333"}
           mt={2}
           fontSize={pxToRem(14)}
           lineHeight={pxToRem(20)}
           fontWeight={700}
         >
           {currentStep + 1}
-          <Text as={"span"} textColor={"#999"}>
+          <Text as={"span"} color={"#999"}>
             {" "}
             / {SURVEY_LIST_LENGTH}
           </Text>

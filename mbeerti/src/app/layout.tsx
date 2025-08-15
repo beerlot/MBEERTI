@@ -5,8 +5,31 @@ import { Providers } from "./Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MBEERTI",
-  description: "당신이 먹고 싶은 맥주를 찾아드립니다.",
+  title: "내가 맥주라면?",
+  description: "나는 어떤 맥주일까!",
+  openGraph: {
+    title: "내가 맥주라면?",
+    description: "나는 어떤 맥주일까!",
+    url: "https://mbeerti.vercel.app/",
+    siteName: "MBEERTI",
+    images: [
+      {
+        url: "/images/intro/beerlot-thumbnail.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MBEERTI - 내가 맥주라면?",
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "내가 맥주라면?",
+    description: "나는 어떤 맥주일까!",
+    images: ["/images/intro/beerlot-thumbnail.jpg"],
+  },
+  metadataBase: new URL("https://mbeerti.vercel.app"),
 };
 
 export default function RootLayout({
